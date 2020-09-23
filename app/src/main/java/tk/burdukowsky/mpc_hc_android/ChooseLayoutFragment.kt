@@ -9,12 +9,12 @@ class ChooseLayoutFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val fragmentId = when (AppPreferences.getLayout()) {
-            Layout.SIMPLE -> R.id.SimpleLayoutFragment
-            Layout.STRETCH -> R.id.StretchLayoutFragment
+        val actionId = when (AppPreferences.getLayout()) {
+            Layout.SIMPLE -> R.id.action_choose_layout_to_simple
+            Layout.STRETCH -> R.id.action_choose_layout_to_stretch
         }
 
-        Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(fragmentId)
+        Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(actionId)
     }
 
 }
