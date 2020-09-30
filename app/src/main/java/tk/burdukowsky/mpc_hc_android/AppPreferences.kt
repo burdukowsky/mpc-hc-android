@@ -29,7 +29,7 @@ object AppPreferences {
 
     fun getHosts(): List<String> {
         val hosts = preferences.getString(HOSTS_KEY, "") ?: ""
-        return hosts.split(HOSTS_DELIMITER)
+        return if (hosts.isEmpty()) emptyList() else hosts.split(HOSTS_DELIMITER)
     }
 
     fun setHosts(hosts: List<String>) {
