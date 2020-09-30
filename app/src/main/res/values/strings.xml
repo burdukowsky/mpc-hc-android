@@ -4,4 +4,5 @@
     <!-- Strings used for fragments for navigation -->
     <string name="stretch_layout_fragment_label">Stretch Layout Fragment</string>
     <string name="simple_layout_fragment_label">Simple Layout Fragment</string>
+    <string name="settings_fragment_label">Settings Fragment</string>
 </resources>

@@ -48,4 +48,20 @@ object AppPreferences {
         editor.apply()
     }
 
+    fun getCurrentHost(): String? {
+        val index = getCurrentHostIndex()
+
+        if (index == CURRENT_HOST_UNDEFINED) {
+            return null
+        }
+
+        val hosts = getHosts()
+
+        if (index >= hosts.size) {
+            return null
+        }
+
+        return hosts[index]
+    }
+
 }
