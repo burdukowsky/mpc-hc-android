@@ -5,4 +5,7 @@
     <string name="stretch_layout_fragment_label">Stretch Layout Fragment</string>
     <string name="simple_layout_fragment_label">Simple Layout Fragment</string>
     <string name="settings_fragment_label">Settings Fragment</string>
+    <string name="confirmation_message">Are you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

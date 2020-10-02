@@ -2,15 +2,15 @@ package tk.burdukowsky.mpc_hc_android
 
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
 
 object AppPreferences {
 
     private const val PREFERENCES_NAME = "appPreferences"
     private const val LAYOUT_KEY = "layout"
     private const val HOSTS_KEY = "hosts"
-    private const val HOSTS_DELIMITER = ","
-    private const val CURRENT_HOST_INDEX_KEY = "currentHostIndex"
-    private const val CURRENT_HOST_UNDEFINED = -1
+    private const val CURRENT_HOST_ID_KEY = "currentHostId"
 
     private val preferences: SharedPreferences =
         App.instance.getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE)
@@ -27,41 +27,39 @@ object AppPreferences {
         editor.apply()
     }
 
-    fun getHosts(): List<String> {
-        val hosts = preferences.getString(HOSTS_KEY, "") ?: ""
-        return if (hosts.isEmpty()) emptyList() else hosts.split(HOSTS_DELIMITER)
+    fun getHosts(): Map<String, String> {
+        val defValue = "{}"
+        val hosts = preferences.getString(HOSTS_KEY, defValue) ?: defValue
+        val type: Type = object : TypeToken<Map<String, String>>() {}.type
+        return GsonProvider.instance.fromJson(hosts, type)
     }
 
-    fun setHosts(hosts: List<String>) {
+    fun setHosts(hosts: Map<String, String>) {
         val editor = preferences.edit()
-        editor.putString(HOSTS_KEY, hosts.joinToString(separator = HOSTS_DELIMITER))
+        editor.putString(HOSTS_KEY, GsonProvider.instance.toJson(hosts))
         editor.apply()
     }
 
-    fun getCurrentHostIndex(): Int {
-        return preferences.getInt(CURRENT_HOST_INDEX_KEY, CURRENT_HOST_UNDEFINED)
+    fun getCurrentHostId(): String? {
+        return preferences.getString(CURRENT_HOST_ID_KEY, null)
     }
 
-    fun setCurrentHostIndex(index: Int) {
+    fun setCurrentHostId(id: String) {
         val editor = preferences.edit()
-        editor.putInt(CURRENT_HOST_INDEX_KEY, index)
+        editor.putString(CURRENT_HOST_ID_KEY, id)
         editor.apply()
     }
 
     fun getCurrentHost(): String? {
-        val index = getCurrentHostIndex()
-
-        if (index == CURRENT_HOST_UNDEFINED) {
-            return null
-        }
+        val id = getCurrentHostId() ?: return null
 
         val hosts = getHosts()
 
-        if (index >= hosts.size) {
+        if (!hosts.containsKey(id)) {
             return null
         }
 
-        return hosts[index]
+        return hosts[id]
     }
 
 }
