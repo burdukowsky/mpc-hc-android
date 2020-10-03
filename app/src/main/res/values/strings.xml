@@ -8,4 +8,5 @@
     <string name="confirmation_message">Are you sure?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="send_command_error">Error, check your network connection</string>
 </resources>

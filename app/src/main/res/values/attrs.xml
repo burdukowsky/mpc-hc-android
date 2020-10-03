@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="command" format="enum">
+        <enum name="play" value="887" />
+        <enum name="pause" value="888" />
+        <enum name="stop" value="890" />
+        <enum name="forward" value="922" />
+        <enum name="back" value="921" />
+        <enum name="increase_speed" value="895" />
+        <enum name="decrease_speed" value="894" />
+        <enum name="seek_forward_medium" value="902" />
+        <enum name="seek_backward_medium" value="901" />
+        <enum name="mute" value="909" />
+        <enum name="volume_down" value="908" />
+        <enum name="volume_up" value="907" />
+        <enum name="fullscreen" value="830" />
+        <enum name="next_audio" value="952" />
+        <enum name="previous_audio" value="953" />
+        <enum name="next_subtitles" value="954" />
+        <enum name="previous_subtitles" value="955" />
+        <enum name="next_playlist_item" value="920" />
+        <enum name="previous_playlist_item" value="919" />
+        <enum name="video_frame_inside" value="839" />
+        <enum name="video_frame_outside" value="840" />
+    </attr>
+    <declare-styleable name="CommandButton">
+        <attr name="command" />
+    </declare-styleable>
+</resources>

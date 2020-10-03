@@ -7,4 +7,32 @@
     android:orientation="vertical"
     tools:context=".SimpleLayoutFragment">
 
+    <tk.burdukowsky.mpc_hc_android.CommandButton
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="play"
+        app:command="play" />
+
+    <tk.burdukowsky.mpc_hc_android.CommandButton
+        android:id="@+id/pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pause"
+        app:command="pause" />
+
+    <tk.burdukowsky.mpc_hc_android.CommandButton
+        android:id="@+id/volumeUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="volume up"
+        app:command="volume_up" />
+
+    <tk.burdukowsky.mpc_hc_android.CommandButton
+        android:id="@+id/volumeDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="volume down"
+        app:command="volume_down" />
+
 </LinearLayout>
