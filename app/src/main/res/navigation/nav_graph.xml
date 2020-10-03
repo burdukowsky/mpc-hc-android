@@ -44,6 +44,20 @@
     <fragment
         android:id="@+id/SettingsFragment"
         android:name="tk.burdukowsky.mpc_hc_android.SettingsFragment"
-        android:label="@string/settings_fragment_label" />
+        android:label="@string/settings_fragment_label">
+
+        <action
+            android:id="@+id/action_settings_to_simple"
+            app:destination="@id/SimpleLayoutFragment"
+            app:popUpTo="@id/SettingsFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_settings_to_stretch"
+            app:destination="@id/StretchLayoutFragment"
+            app:popUpTo="@id/SettingsFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
 
 </navigation>

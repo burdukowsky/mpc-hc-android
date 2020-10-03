@@ -1,17 +1,31 @@
 package tk.burdukowsky.mpc_hc_android
 
+import android.content.Context
 import android.os.Bundle
 import androidx.preference.*
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
+    private lateinit var mainActivity: MainActivity
+
     private var hosts: MutableMap<String, String> = mutableMapOf()
-    private var currentHostId: String? = null
-    private var currentHostPreference: ListPreference? = null
+    private lateinit var currentHostPreference: ListPreference
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mainActivity = activity as MainActivity
+        mainActivity.setOptionsMenuVisibility(false)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mainActivity.setFabVisibility(false)
+        mainActivity.setOptionsMenuVisibility(true)
+    }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         hosts.putAll(AppPreferences.getHosts())
-        currentHostId = AppPreferences.getCurrentHostId()
+        updateFab()
 
         val context = preferenceManager.context
         val screen = preferenceManager.createPreferenceScreen(context)
@@ -67,7 +81,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             hosts[id] = newHost
             AppPreferences.setHosts(hosts)
 
-            currentHostPreference?.let { updateCurrentHostPreferenceState(it) }
+            updateCurrentHostPreferenceState(currentHostPreference)
 
             true
         }
@@ -80,7 +94,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
                     category.removePreference(preference)
 
-                    currentHostPreference?.let { updateCurrentHostPreferenceState(it) }
+                    updateCurrentHostPreferenceState(currentHostPreference)
+                    updateFab()
                 }
             ).show(childFragmentManager, "deleteHostConfirmationDialog")
         }
@@ -104,7 +119,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
             category.addPreference(getHostPreference(hosts.size, newHost, newId, category))
 
-            currentHostPreference?.let { updateCurrentHostPreferenceState(it) }
+            updateCurrentHostPreferenceState(currentHostPreference)
 
             false
         }
@@ -117,7 +132,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             key = "current_host"
             title = "Active host"
             order = 101
-            value = currentHostId
+            value = AppPreferences.getCurrentHostId()
             summaryProvider =
                 Preference.SummaryProvider { preference: ListPreference -> hosts[preference.value] }
         }
@@ -125,6 +140,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         preference.setOnPreferenceChangeListener { _, newValue ->
             AppPreferences.setCurrentHostId(newValue.toString())
+            updateFab()
             true
         }
 
@@ -136,6 +152,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
         preference.entryValues = hosts.keys.toTypedArray()
         preference.isEnabled = hosts.isNotEmpty()
         preference.summaryProvider = preference.summaryProvider // force update summary
+    }
+
+    private fun updateFab() {
+        val currentHostId = AppPreferences.getCurrentHostId()
+        mainActivity.setFabVisibility(currentHostId != null && hosts.containsKey(currentHostId))
     }
 
 }
