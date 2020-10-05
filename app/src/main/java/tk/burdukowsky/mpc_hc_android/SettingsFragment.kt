@@ -48,6 +48,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         setupAddHostPreference(hostsCategory)
         currentHostPreference = getCurrentHostPreference()
         settingsCategory.addPreference(currentHostPreference)
+        settingsCategory.addPreference(getLayoutPreference())
 
         preferenceScreen = screen
     }
@@ -157,6 +158,29 @@ class SettingsFragment : PreferenceFragmentCompat() {
     private fun updateFab() {
         val currentHostId = AppPreferences.getCurrentHostId()
         mainActivity.setFabVisibility(currentHostId != null && hosts.containsKey(currentHostId))
+    }
+
+    private fun getLayoutPreference(): ListPreference {
+        val preference = ListPreference(context).apply {
+            isPersistent = false
+            key = "layout"
+            title = "Layout"
+            order = 102
+            entries = resources.getStringArray(R.array.layouts)
+            entryValues = Layout.values().map { layout -> layout.name }.toTypedArray()
+            value = AppPreferences.getLayout().name
+            summaryProvider =
+                Preference.SummaryProvider { preference: ListPreference ->
+                    Layout.toLayout(preference.value).getResource()
+                }
+        }
+
+        preference.setOnPreferenceChangeListener { _, newValue ->
+            AppPreferences.setLayout(Layout.toLayout(newValue.toString()))
+            true
+        }
+
+        return preference
     }
 
 }
