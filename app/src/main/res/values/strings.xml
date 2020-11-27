@@ -11,6 +11,10 @@
         <item>@string/simple_layout</item>
         <item>@string/stretch_layout</item>
     </string-array>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="volume_down">Volume down</string>
+    <string name="volume_up">Volume up</string>
     <string name="confirmation_message">Are you sure?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>

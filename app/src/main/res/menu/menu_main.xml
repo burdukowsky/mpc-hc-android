@@ -4,7 +4,14 @@
     tools:context="tk.burdukowsky.mpc_hc_android.MainActivity">
     <item
         android:id="@+id/SettingsFragment"
-        android:orderInCategory="100"
         android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/notification_on"
+        android:title="notification_on"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/notification_off"
+        android:title="notification_off"
         app:showAsAction="never" />
 </menu>

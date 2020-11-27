@@ -24,6 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".CommandNotificationService" />
+        <receiver
+            android:name=".CommandReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="tk.burdukowsky.mpc_hc_android.NOTIFICATION_COMMAND" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
