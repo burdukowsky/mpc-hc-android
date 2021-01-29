@@ -39,14 +39,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val hostsCategory = PreferenceCategory(context).apply {
             isPersistent = false
             key = "hosts_category"
-            title = "Hosts"
+            title = resources.getString(R.string.settings_category_hosts)
         }
         screen.addPreference(hostsCategory)
 
         val settingsCategory = PreferenceCategory(context).apply {
             isPersistent = false
             key = "settings_category"
-            title = "Settings"
+            title = resources.getString(R.string.settings_category_settings)
         }
         screen.addPreference(settingsCategory)
 
@@ -78,6 +78,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             key = "host_$number"
             title = host
             text = host
+            dialogTitle = resources.getString(R.string.settings_preference_host_dialog_title)
             order = number
             setOnBindEditTextListener { it.hint = hostPlaceholder }
         }
@@ -115,7 +116,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val addHostPreference = EditTextPreference(context).apply {
             isPersistent = false
             key = "add_host"
-            title = "+ New host"
+            title = resources.getString(R.string.settings_preference_add_host_title)
+            dialogTitle = resources.getString(R.string.settings_preference_add_host_dialog_title)
             order = addHostPreferenceOrder
             setOnBindEditTextListener { it.hint = hostPlaceholder }
         }
@@ -147,7 +149,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val preference = ListPreference(context).apply {
             isPersistent = false
             key = "current_host"
-            title = "Active host"
+            title = resources.getString(R.string.settings_preference_active_host_title)
+            dialogTitle = resources.getString(R.string.settings_preference_active_host_dialog_title)
             order = currentHostPreferenceOrder
             value = AppPreferences.getCurrentHostId()
             summaryProvider =
@@ -184,7 +187,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val preference = ListPreference(context).apply {
             isPersistent = false
             key = "layout"
-            title = "Layout"
+            title = resources.getString(R.string.settings_preference_layout_title)
+            dialogTitle = resources.getString(R.string.settings_preference_layout_dialog_title)
             order = layoutPreferenceOrder
             entries = resources.getStringArray(R.array.layouts)
             entryValues = Layout.values().map { layout -> layout.name }.toTypedArray()

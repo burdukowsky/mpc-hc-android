@@ -8,6 +8,6 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/notification_switch"
-        android:title="@string/notification_switch"
+        android:title="@string/action_notification_on_off"
         app:showAsAction="never" />
 </menu>

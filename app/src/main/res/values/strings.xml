@@ -1,25 +1,38 @@
 <resources>
     <string name="app_name">MPC-HC Remote Control</string>
     <string name="action_settings">Settings</string>
+    <string name="action_notification_on_off">Notification On/Off</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="stretch_layout_fragment_label">Stretch Layout Fragment</string>
     <string name="simple_layout_fragment_label">Simple Layout Fragment</string>
     <string name="settings_fragment_label">Settings Fragment</string>
+
     <string name="stretch_layout">Stretch</string>
     <string name="simple_layout">Simple</string>
     <string-array name="layouts">
         <item>@string/simple_layout</item>
         <item>@string/stretch_layout</item>
     </string-array>
+
     <string name="press_twice_to_exit">Press twice to exit</string>
     <string name="play">Play</string>
     <string name="pause">Pause</string>
     <string name="volume_down">Volume down</string>
     <string name="volume_up">Volume up</string>
     <string name="close">Close</string>
-    <string name="notification_switch">Notification On/Off</string>
     <string name="confirmation_message">Are you sure?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="send_command_error">Error, check your network connection</string>
+
+    <string name="settings_category_hosts">Hosts</string>
+    <string name="settings_category_settings">Settings</string>
+    <string name="settings_preference_host_dialog_title">Host</string>
+    <string name="settings_preference_add_host_title">+ New host</string>
+    <string name="settings_preference_add_host_dialog_title">New host</string>
+    <string name="settings_preference_active_host_title">Active host</string>
+    <string name="settings_preference_active_host_dialog_title">Active host</string>
+    <string name="settings_preference_layout_title">Layout</string>
+    <string name="settings_preference_layout_dialog_title">Layout</string>
 </resources>
