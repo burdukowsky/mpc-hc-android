@@ -80,7 +80,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
 
         preference.setOnPreferenceChangeListener { _, newValue ->
-            val newHost = newValue.toString()
+            val newHost = newValue.toString().trim()
             preference.title = newHost
 
             hosts[id] = newHost
@@ -116,7 +116,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             order = addHostPreferenceOrder
         }
         addHostPreference.setOnPreferenceChangeListener { _, newValue ->
-            val newHost = newValue.toString()
+            val newHost = newValue.toString().trim()
             val newId = IdGenerator.next()
 
             hosts[newId] = newHost
