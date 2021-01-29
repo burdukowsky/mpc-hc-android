@@ -36,4 +36,12 @@
         android:contentDescription="@string/volume_up"
         android:src="@drawable/ic_volume_up" />
 
+    <ImageView
+        android:id="@+id/notification_close"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/close"
+        android:src="@drawable/ic_close" />
+
 </LinearLayout>

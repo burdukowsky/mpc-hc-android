@@ -3,7 +3,10 @@ package tk.burdukowsky.mpc_hc_android
 import android.app.Notification
 import android.app.PendingIntent
 import android.app.Service
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.IBinder
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
@@ -14,6 +17,7 @@ class CommandNotificationService : Service() {
 
     private val notificationId = 42
     private val notificationChannelId = "commandNotificationChannelId"
+    private val stopServiceReceiverIntentFilterAction = "stopServiceReceiver"
     private val commandInfoMap: Map<Command, CommandInfo> = mapOf(
         Command.play to CommandInfo(R.id.notification_play, 0),
         Command.pause to CommandInfo(R.id.notification_pause, 1),
@@ -36,7 +40,19 @@ class CommandNotificationService : Service() {
     }
 
     private fun start() {
+        registerReceiver(stopServiceReceiver, IntentFilter(stopServiceReceiverIntentFilterAction))
+
         val remoteViews = RemoteViews(packageName, R.layout.notification)
+
+        remoteViews.setOnClickPendingIntent(
+            R.id.notification_close,
+            PendingIntent.getBroadcast(
+                this,
+                -1,
+                Intent(stopServiceReceiverIntentFilterAction),
+                PendingIntent.FLAG_UPDATE_CURRENT
+            )
+        )
 
         for ((command, commandInfo) in commandInfoMap) {
             remoteViews.setOnClickPendingIntent(
@@ -60,6 +76,12 @@ class CommandNotificationService : Service() {
                 setStyle(NotificationCompat.DecoratedCustomViewStyle())
             }.build()
         startForeground(notificationId, notification)
+    }
+
+    private var stopServiceReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            stopSelf()
+        }
     }
 
 }
