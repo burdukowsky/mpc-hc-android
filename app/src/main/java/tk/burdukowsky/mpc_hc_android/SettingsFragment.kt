@@ -122,6 +122,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
             updateCurrentHostPreferenceState(currentHostPreference)
 
+            if (
+                currentHostPreference.value.isNullOrEmpty() ||
+                !hosts.containsKey(currentHostPreference.value)
+            ) {
+                currentHostPreference.value = newId
+                this.onCurrentHostPreferenceChange(newId)
+            }
+
             false
         }
         category.addPreference(addHostPreference)
@@ -140,12 +148,16 @@ class SettingsFragment : PreferenceFragmentCompat() {
         updateCurrentHostPreferenceState(preference)
 
         preference.setOnPreferenceChangeListener { _, newValue ->
-            AppPreferences.setCurrentHostId(newValue.toString())
-            updateFab()
+            this.onCurrentHostPreferenceChange(newValue.toString())
             true
         }
 
         return preference
+    }
+
+    private fun onCurrentHostPreferenceChange(newValue: String) {
+        AppPreferences.setCurrentHostId(newValue)
+        updateFab()
     }
 
     private fun updateCurrentHostPreferenceState(preference: ListPreference) {
