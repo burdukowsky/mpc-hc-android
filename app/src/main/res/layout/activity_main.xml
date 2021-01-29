@@ -29,6 +29,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:visibility="invisible"
-        app:srcCompat="@drawable/ic_remote_white"/>
+        android:src="@drawable/ic_remote_white"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

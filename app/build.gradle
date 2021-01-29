@@ -6,7 +6,6 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        vectorDrawables.useSupportLibrary = true
         applicationId "tk.burdukowsky.mpc_hc_android"
         minSdkVersion 14
         targetSdkVersion 29
