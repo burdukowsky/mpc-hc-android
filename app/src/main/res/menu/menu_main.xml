@@ -7,11 +7,7 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
-        android:id="@+id/notification_on"
-        android:title="notification_on"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/notification_off"
-        android:title="notification_off"
+        android:id="@+id/notification_switch"
+        android:title="@string/notification_switch"
         app:showAsAction="never" />
 </menu>

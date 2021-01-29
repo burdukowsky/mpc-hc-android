@@ -1,5 +1,7 @@
 package tk.burdukowsky.mpc_hc_android
 
+import android.app.ActivityManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -47,12 +49,8 @@ class MainActivity : AppCompatActivity() {
                 NavigationUI.onNavDestinationSelected(item, navController)
                 super.onOptionsItemSelected(item)
             }
-            R.id.notification_on -> {
-                setNotificationStatus(true)
-                true
-            }
-            R.id.notification_off -> {
-                setNotificationStatus(false)
+            R.id.notification_switch -> {
+                showOrHideNotification()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -72,12 +70,28 @@ class MainActivity : AppCompatActivity() {
         if (visibility) fab.show() else fab.hide()
     }
 
+    private fun showOrHideNotification() {
+        val status = isMyServiceRunning(CommandNotificationService::class.java)
+        setNotificationStatus(!status)
+    }
+
     private fun setNotificationStatus(status: Boolean) {
         if (notificationServiceIntent == null) {
             notificationServiceIntent = Intent(this, CommandNotificationService::class.java)
         }
         if (status) startService(notificationServiceIntent)
         else stopService(notificationServiceIntent)
+    }
+
+    private fun isMyServiceRunning(serviceClass: Class<*>): Boolean {
+        val manager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        @Suppress("DEPRECATION")
+        for (service in manager.getRunningServices(Int.MAX_VALUE)) {
+            if (serviceClass.name == service.service.className) {
+                return true
+            }
+        }
+        return false
     }
 
 }

@@ -16,6 +16,7 @@
     <string name="volume_down">Volume down</string>
     <string name="volume_up">Volume up</string>
     <string name="close">Close</string>
+    <string name="notification_switch">Notification On/Off</string>
     <string name="confirmation_message">Are you sure?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
