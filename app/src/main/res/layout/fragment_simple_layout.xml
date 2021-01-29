@@ -2,37 +2,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/LinearLayoutWithVerticalDivider"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".SimpleLayoutFragment">
 
-    <tk.burdukowsky.mpc_hc_android.CommandButton
-        android:id="@+id/play"
+    <LinearLayout
+        style="@style/LinearLayoutWithHorizontalDivider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="play"
-        app:command="play" />
+        android:orientation="horizontal">
 
-    <tk.burdukowsky.mpc_hc_android.CommandButton
-        android:id="@+id/pause"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="pause"
-        app:command="pause" />
+        <tk.burdukowsky.mpc_hc_android.CommandButton
+            android:id="@+id/play"
+            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+            app:command="play"
+            app:icon="@drawable/ic_play" />
 
-    <tk.burdukowsky.mpc_hc_android.CommandButton
-        android:id="@+id/volumeUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="volume up"
-        app:command="volume_up" />
+        <tk.burdukowsky.mpc_hc_android.CommandButton
+            android:id="@+id/pause"
+            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+            app:command="pause"
+            app:icon="@drawable/ic_pause" />
 
-    <tk.burdukowsky.mpc_hc_android.CommandButton
-        android:id="@+id/volumeDown"
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/LinearLayoutWithHorizontalDivider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="volume down"
-        app:command="volume_down" />
+        android:orientation="horizontal">
+
+        <tk.burdukowsky.mpc_hc_android.CommandButton
+            android:id="@+id/volumeDown"
+            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+            app:command="volume_down"
+            app:icon="@drawable/ic_volume_down" />
+
+        <tk.burdukowsky.mpc_hc_android.CommandButton
+            android:id="@+id/volumeUp"
+            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+            app:command="volume_up"
+            app:icon="@drawable/ic_volume_up" />
+
+    </LinearLayout>
 
 </LinearLayout>

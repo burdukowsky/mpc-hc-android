@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -15,5 +15,24 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Widget.App.Button.SimpleLayout.IconOnly" parent="Widget.MaterialComponents.Button">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:paddingLeft">48dp</item>
+        <item name="android:paddingRight">48dp</item>
+    </style>
+
+    <style name="LinearLayoutWithHorizontalDivider">
+        <item name="android:showDividers">middle</item>
+        <item name="android:divider">@drawable/layout_horizontal_divider</item>
+    </style>
+
+    <style name="LinearLayoutWithVerticalDivider">
+        <item name="android:showDividers">middle</item>
+        <item name="android:divider">@drawable/layout_vertical_divider</item>
+    </style>
 
 </resources>

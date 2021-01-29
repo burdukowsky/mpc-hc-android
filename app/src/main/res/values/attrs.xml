@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Sync with src/main/java/tk/burdukowsky/mpc_hc_android/Command.kt -->
     <attr name="command" format="enum">
         <enum name="play" value="887" />
         <enum name="pause" value="888" />

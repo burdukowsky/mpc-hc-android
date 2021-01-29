@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Button xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/button"
-    android:layout_width="36sp"
-    android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
-    android:text="@string/icon_times"
-    android:textSize="36sp">
-
-</Button>
+    style="@style/Widget.MaterialComponents.Button.TextButton"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    app:icon="@drawable/ic_close" />

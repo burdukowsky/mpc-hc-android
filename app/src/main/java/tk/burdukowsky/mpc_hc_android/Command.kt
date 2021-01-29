@@ -1,5 +1,6 @@
 package tk.burdukowsky.mpc_hc_android
 
+// Sync with src/main/res/values/attrs.xml
 enum class Command(val value: Int) {
     play(887),
     pause(888),
