@@ -6,6 +6,10 @@ import androidx.preference.*
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
+    private val addHostPreferenceOrder = 1000
+    private val currentHostPreferenceOrder = 1001
+    private val layoutPreferenceOrder = 1002
+
     private lateinit var mainActivity: MainActivity
 
     private var hosts: MutableMap<String, String> = mutableMapOf()
@@ -109,7 +113,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             isPersistent = false
             key = "add_host"
             title = "+ New host"
-            order = 100
+            order = addHostPreferenceOrder
         }
         addHostPreference.setOnPreferenceChangeListener { _, newValue ->
             val newHost = newValue.toString()
@@ -140,7 +144,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             isPersistent = false
             key = "current_host"
             title = "Active host"
-            order = 101
+            order = currentHostPreferenceOrder
             value = AppPreferences.getCurrentHostId()
             summaryProvider =
                 Preference.SummaryProvider { preference: ListPreference -> hosts[preference.value] }
@@ -177,7 +181,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             isPersistent = false
             key = "layout"
             title = "Layout"
-            order = 102
+            order = layoutPreferenceOrder
             entries = resources.getStringArray(R.array.layouts)
             entryValues = Layout.values().map { layout -> layout.name }.toTypedArray()
             value = AppPreferences.getLayout().name
