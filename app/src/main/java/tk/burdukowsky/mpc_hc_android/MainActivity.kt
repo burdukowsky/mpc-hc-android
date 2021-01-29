@@ -4,8 +4,10 @@ import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -14,6 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
+    private var backPressedOnce = false
     private lateinit var navController: NavController
     private lateinit var fab: FloatingActionButton
     private var optionsMenuEnabled = true
@@ -58,7 +61,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        finish()
+        if (backPressedOnce) {
+            finish()
+        }
+        this.backPressedOnce = true
+        Toast.makeText(this, R.string.press_twice_to_exit, Toast.LENGTH_SHORT).show()
+        Handler().postDelayed({ backPressedOnce = false }, 2000)
     }
 
     fun setOptionsMenuVisibility(visibility: Boolean) {

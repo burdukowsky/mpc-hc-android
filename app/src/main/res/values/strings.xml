@@ -11,6 +11,7 @@
         <item>@string/simple_layout</item>
         <item>@string/stretch_layout</item>
     </string-array>
+    <string name="press_twice_to_exit">Press twice to exit</string>
     <string name="play">Play</string>
     <string name="pause">Pause</string>
     <string name="volume_down">Volume down</string>
