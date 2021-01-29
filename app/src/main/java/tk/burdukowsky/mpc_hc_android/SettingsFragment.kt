@@ -10,6 +10,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
     private val currentHostPreferenceOrder = 1001
     private val layoutPreferenceOrder = 1002
 
+    private val hostPlaceholder = "192.168.0.1:13579"
+
     private lateinit var mainActivity: MainActivity
 
     private var hosts: MutableMap<String, String> = mutableMapOf()
@@ -77,6 +79,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             title = host
             text = host
             order = number
+            setOnBindEditTextListener { it.hint = hostPlaceholder }
         }
 
         preference.setOnPreferenceChangeListener { _, newValue ->
@@ -114,6 +117,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             key = "add_host"
             title = "+ New host"
             order = addHostPreferenceOrder
+            setOnBindEditTextListener { it.hint = hostPlaceholder }
         }
         addHostPreference.setOnPreferenceChangeListener { _, newValue ->
             val newHost = newValue.toString().trim()
