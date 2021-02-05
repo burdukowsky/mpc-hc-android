@@ -5,7 +5,14 @@ import android.util.AttributeSet
 import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 
-class CommandButton(context: Context, attrs: AttributeSet?) : MaterialButton(context, attrs) {
+class CommandButton(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = com.google.android.material.R.attr.materialButtonStyle
+) :
+    MaterialButton(context, attrs, defStyleAttr) {
+
+    private var commandValue: Int
 
     init {
         context.theme.obtainStyledAttributes(
@@ -14,26 +21,31 @@ class CommandButton(context: Context, attrs: AttributeSet?) : MaterialButton(con
             0, 0
         ).apply {
             try {
-                val command = getInteger(R.styleable.CommandButton_command, 0)
-                setOnClickListener {
-                    DoAsync {
-                        try {
-                            CommandService.send(command)
-                        } catch (t: Throwable) {
-                            (context as MainActivity).runOnUiThread {
-                                Toast.makeText(
-                                    context,
-                                    R.string.send_command_error,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        }
-                    }
-                }
+                commandValue = getInteger(R.styleable.CommandButton_command, 0)
             } finally {
                 recycle()
             }
         }
+
+        setOnClickListener {
+            DoAsync {
+                try {
+                    CommandService.send(commandValue)
+                } catch (t: Throwable) {
+                    (context as MainActivity).runOnUiThread {
+                        Toast.makeText(
+                            context,
+                            R.string.send_command_error,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        }
+    }
+
+    fun setCommand(cmd: Command) {
+        this.commandValue = cmd.value
     }
 
 }
