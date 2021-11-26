@@ -7,14 +7,17 @@ import com.google.android.material.button.MaterialButton
 
 class CommandButton(context: Context, attrs: AttributeSet?) : MaterialButton(context, attrs) {
 
+    var command: Int = 0
+
     init {
         context.theme.obtainStyledAttributes(
             attrs,
             R.styleable.CommandButton,
-            0, 0
+            0,
+            R.style.Widget_App_Button_SimpleLayout_IconOnly
         ).apply {
             try {
-                val command = getInteger(R.styleable.CommandButton_command, 0)
+                command = getInteger(R.styleable.CommandButton_command, 0)
                 setOnClickListener {
                     DoAsync {
                         try {
