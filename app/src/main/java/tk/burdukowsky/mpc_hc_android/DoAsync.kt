@@ -8,6 +8,7 @@ class DoAsync(val handler: () -> Unit) : AsyncTask<Void, Void, Void>() {
         execute()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun doInBackground(vararg params: Void?): Void? {
         handler()
         return null
