@@ -1,210 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/LinearLayoutWithVerticalDivider"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context=".SimpleLayoutFragment">
 
     <LinearLayout
-        style="@style/LinearLayoutWithHorizontalDivider"
-        android:layout_width="wrap_content"
+        style="@style/SimpleLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/play"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="play"
-            app:icon="@drawable/ic_play" />
+        <LinearLayout
+            style="@style/LinearLayoutWithHorizontalDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/pause"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="pause"
-            app:icon="@drawable/ic_pause" />
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/play"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="play"
+                app:icon="@drawable/ic_play" />
 
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/stop"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="stop"
-            app:icon="@drawable/ic_stop" />
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/pause"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="pause"
+                app:icon="@drawable/ic_pause" />
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/stop"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="stop"
+                app:icon="@drawable/ic_stop" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearLayoutWithHorizontalDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/mute"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="mute"
+                app:icon="@drawable/ic_mute" />
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/volumeDown"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="volume_down"
+                app:icon="@drawable/ic_volume_down" />
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/volumeUp"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="volume_up"
+                app:icon="@drawable/ic_volume_up" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearLayoutWithHorizontalDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/seekBackwardMedium"
+                style="@style/Widget.App.Button.SimpleLayout.TextOnly"
+                android:text="@string/seek_backward_medium"
+                app:command="seek_backward_medium" />
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/seekForwardMedium"
+                style="@style/Widget.App.Button.SimpleLayout.TextOnly"
+                android:text="@string/seek_forward_medium"
+                app:command="seek_forward_medium" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearLayoutWithHorizontalDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/back"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="back"
+                app:icon="@drawable/ic_back" />
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/forward"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="forward"
+                app:icon="@drawable/ic_forward" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearLayoutWithHorizontalDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/previousPlaylistItem"
+                style="@style/Widget.App.Button.SimpleLayout.TextOnly"
+                android:text="@string/previous_playlist_item"
+                app:command="previous_playlist_item" />
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/nextPlaylistItem"
+                style="@style/Widget.App.Button.SimpleLayout.TextOnly"
+                android:text="@string/next_playlist_item"
+                app:command="next_playlist_item" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearLayoutWithHorizontalDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/previousAudio"
+                style="@style/Widget.App.Button.SimpleLayout.TextOnly"
+                android:text="@string/previous_audio"
+                app:command="previous_audio" />
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/nextAudio"
+                style="@style/Widget.App.Button.SimpleLayout.TextOnly"
+                android:text="@string/next_audio"
+                app:command="next_audio" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearLayoutWithHorizontalDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/previousSubtitles"
+                style="@style/Widget.App.Button.SimpleLayout.TextOnly"
+                android:text="@string/previous_subtitles"
+                app:command="previous_subtitles" />
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/nextSubtitles"
+                style="@style/Widget.App.Button.SimpleLayout.TextOnly"
+                android:text="@string/next_subtitles"
+                app:command="next_subtitles" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearLayoutWithHorizontalDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/fullscreen"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="fullscreen"
+                app:icon="@drawable/ic_fullscreen" />
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/videoFrameInside"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="video_frame_inside"
+                app:icon="@drawable/ic_video_frame_inside" />
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/videoFrameOutside"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="video_frame_outside"
+                app:icon="@drawable/ic_video_frame_outside" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearLayoutWithHorizontalDivider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/decreaseSpeed"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="decrease_speed"
+                app:icon="@drawable/ic_decrease_speed" />
+
+            <tk.burdukowsky.mpc_hc_android.CommandButton
+                android:id="@+id/increaseSpeed"
+                style="@style/Widget.App.Button.SimpleLayout.IconOnly"
+                app:command="increase_speed"
+                app:icon="@drawable/ic_increase_speed" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-        style="@style/LinearLayoutWithHorizontalDivider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/mute"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="mute"
-            app:icon="@drawable/ic_mute" />
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/volumeDown"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="volume_down"
-            app:icon="@drawable/ic_volume_down" />
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/volumeUp"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="volume_up"
-            app:icon="@drawable/ic_volume_up" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/LinearLayoutWithHorizontalDivider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/seekBackwardMedium"
-            style="@style/Widget.App.Button.SimpleLayout.TextOnly"
-            android:text="@string/seek_backward_medium"
-            app:command="seek_backward_medium" />
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/seekForwardMedium"
-            style="@style/Widget.App.Button.SimpleLayout.TextOnly"
-            android:text="@string/seek_forward_medium"
-            app:command="seek_forward_medium" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/LinearLayoutWithHorizontalDivider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/back"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="back"
-            app:icon="@drawable/ic_back" />
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/forward"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="forward"
-            app:icon="@drawable/ic_forward" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/LinearLayoutWithHorizontalDivider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/previousPlaylistItem"
-            style="@style/Widget.App.Button.SimpleLayout.TextOnly"
-            android:text="@string/previous_playlist_item"
-            app:command="previous_playlist_item" />
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/nextPlaylistItem"
-            style="@style/Widget.App.Button.SimpleLayout.TextOnly"
-            android:text="@string/next_playlist_item"
-            app:command="next_playlist_item" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/LinearLayoutWithHorizontalDivider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/previousAudio"
-            style="@style/Widget.App.Button.SimpleLayout.TextOnly"
-            android:text="@string/previous_audio"
-            app:command="previous_audio" />
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/nextAudio"
-            style="@style/Widget.App.Button.SimpleLayout.TextOnly"
-            android:text="@string/next_audio"
-            app:command="next_audio" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/LinearLayoutWithHorizontalDivider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/previousSubtitles"
-            style="@style/Widget.App.Button.SimpleLayout.TextOnly"
-            android:text="@string/previous_subtitles"
-            app:command="previous_subtitles" />
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/nextSubtitles"
-            style="@style/Widget.App.Button.SimpleLayout.TextOnly"
-            android:text="@string/next_subtitles"
-            app:command="next_subtitles" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/LinearLayoutWithHorizontalDivider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/fullscreen"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="fullscreen"
-            app:icon="@drawable/ic_fullscreen" />
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/videoFrameInside"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="video_frame_inside"
-            app:icon="@drawable/ic_video_frame_inside" />
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/videoFrameOutside"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="video_frame_outside"
-            app:icon="@drawable/ic_video_frame_outside" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/LinearLayoutWithHorizontalDivider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/decreaseSpeed"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="decrease_speed"
-            app:icon="@drawable/ic_decrease_speed" />
-
-        <tk.burdukowsky.mpc_hc_android.CommandButton
-            android:id="@+id/increaseSpeed"
-            style="@style/Widget.App.Button.SimpleLayout.IconOnly"
-            app:command="increase_speed"
-            app:icon="@drawable/ic_increase_speed" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

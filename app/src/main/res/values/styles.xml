@@ -45,4 +45,9 @@
         <item name="android:divider">@drawable/layout_vertical_divider</item>
     </style>
 
+    <style name="SimpleLayout" parent="LinearLayoutWithVerticalDivider">
+        <item name="android:paddingBottom">@dimen/simple_layout_gap</item>
+        <item name="android:paddingTop">@dimen/simple_layout_gap</item>
+    </style>
+
 </resources>
