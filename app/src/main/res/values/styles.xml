@@ -19,10 +19,20 @@
     <style name="Widget.App.Button.SimpleLayout.IconOnly" parent="Widget.MaterialComponents.Button">
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
-        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_width">@dimen/simple_button_width</item>
         <item name="android:layout_height">72dp</item>
-        <item name="android:paddingLeft">48dp</item>
-        <item name="android:paddingRight">48dp</item>
+        <item name="android:paddingLeft">38dp</item>
+        <item name="android:paddingRight">38dp</item>
+    </style>
+
+    <style name="Widget.App.Button.SimpleLayout.TextOnly" parent="Widget.MaterialComponents.Button">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minWidth">@dimen/simple_button_width</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
     </style>
 
     <style name="LinearLayoutWithHorizontalDivider">

@@ -16,10 +16,20 @@
     </string-array>
 
     <string name="press_twice_to_exit">Press twice to exit</string>
+
     <string name="play">Play</string>
     <string name="pause">Pause</string>
     <string name="volume_down">Volume down</string>
     <string name="volume_up">Volume up</string>
+    <string name="seek_backward_medium">-5s</string>
+    <string name="seek_forward_medium">+5s</string>
+    <string name="previous_playlist_item">◄ Prev</string>
+    <string name="next_playlist_item">Next ►</string>
+    <string name="previous_audio">◄ Audio</string>
+    <string name="next_audio">Audio ►</string>
+    <string name="previous_subtitles">◄ Subtitles</string>
+    <string name="next_subtitles">Subtitles ►</string>
+
     <string name="close">Close</string>
     <string name="confirmation_message">Are you sure?</string>
     <string name="yes">Yes</string>
